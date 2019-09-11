@@ -8,8 +8,8 @@ import (
 	reflect "reflect"
 	time "time"
 
+	semaphore_redis "github.com/GettEngineering/redis-semaphore-go/semaphore/semaphore-redis"
 	gomock "github.com/golang/mock/gomock"
-	semaphore_redis "github.com/gtforge/redis-semaphore-go/semaphore/semaphore-redis"
 )
 
 // MockRedis is a mock of Redis interface
@@ -77,20 +77,6 @@ func (m *MockRedis) Exists(key string) (bool, error) {
 func (mr *MockRedisMockRecorder) Exists(key interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Exists", reflect.TypeOf((*MockRedis)(nil).Exists), key)
-}
-
-// PExpire mocks base method
-func (m *MockRedis) PExpire(key string, expiration time.Duration) error {
-	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "PExpire", key, expiration)
-	ret0, _ := ret[0].(error)
-	return ret0
-}
-
-// PExpire indicates an expected call of PExpire
-func (mr *MockRedisMockRecorder) PExpire(key, expiration interface{}) *gomock.Call {
-	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "PExpire", reflect.TypeOf((*MockRedis)(nil).PExpire), key, expiration)
 }
 
 // TxPipelined mocks base method
@@ -282,4 +268,18 @@ func (mr *MockPipelineMockRecorder) RPush(key interface{}, values ...interface{}
 	mr.mock.ctrl.T.Helper()
 	varargs := append([]interface{}{key}, values...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "RPush", reflect.TypeOf((*MockPipeline)(nil).RPush), varargs...)
+}
+
+// PExpire mocks base method
+func (m *MockPipeline) PExpire(key string, expiration time.Duration) error {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "PExpire", key, expiration)
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// PExpire indicates an expected call of PExpire
+func (mr *MockPipelineMockRecorder) PExpire(key, expiration interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "PExpire", reflect.TypeOf((*MockPipeline)(nil).PExpire), key, expiration)
 }

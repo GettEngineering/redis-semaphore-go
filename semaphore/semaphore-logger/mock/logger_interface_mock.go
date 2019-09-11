@@ -7,8 +7,8 @@ package mock_semaphorelogger
 import (
 	reflect "reflect"
 
+	semaphore_logger "github.com/GettEngineering/redis-semaphore-go/semaphore/semaphore-logger"
 	gomock "github.com/golang/mock/gomock"
-	semaphore_logger "github.com/gtforge/redis-semaphore-go/semaphore/semaphore-logger"
 )
 
 // MockLogger is a mock of Logger interface
@@ -32,20 +32,6 @@ func NewMockLogger(ctrl *gomock.Controller) *MockLogger {
 // EXPECT returns an object that allows the caller to indicate expected use
 func (m *MockLogger) EXPECT() *MockLoggerMockRecorder {
 	return m.recorder
-}
-
-// GetLevel mocks base method
-func (m *MockLogger) GetLevel() semaphore_logger.LogLevel {
-	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "GetLevel")
-	ret0, _ := ret[0].(semaphore_logger.LogLevel)
-	return ret0
-}
-
-// GetLevel indicates an expected call of GetLevel
-func (mr *MockLoggerMockRecorder) GetLevel() *gomock.Call {
-	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetLevel", reflect.TypeOf((*MockLogger)(nil).GetLevel))
 }
 
 // WithFields mocks base method

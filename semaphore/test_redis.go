@@ -1,11 +1,9 @@
 package semaphore
 
 import (
-	"time"
-
+	"github.com/GettEngineering/redis-semaphore-go/semaphore/semaphore-redis"
 	"gopkg.in/redis.v5"
-
-	"github.com/gtforge/redis-semaphore-go/semaphore/semaphore-redis"
+	"time"
 )
 
 type testRedis interface {

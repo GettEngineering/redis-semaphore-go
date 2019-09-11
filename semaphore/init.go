@@ -1,7 +1,7 @@
 package semaphore
 
 import (
-	"github.com/gtforge/redis-semaphore-go/semaphore/semaphore-redis"
+	"github.com/GettEngineering/redis-semaphore-go/semaphore/semaphore-redis"
 	"github.com/pkg/errors"
 	"github.com/satori/go.uuid"
 )

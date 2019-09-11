@@ -3,7 +3,7 @@ package semaphore
 import (
 	"fmt"
 
-	"github.com/gtforge/redis-semaphore-go/semaphore/semaphore-redis"
+	"github.com/GettEngineering/redis-semaphore-go/semaphore/semaphore-redis"
 	"github.com/pkg/errors"
 )
 

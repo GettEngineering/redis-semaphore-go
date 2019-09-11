@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/gtforge/redis-semaphore-go/semaphore/semaphore-redis"
+	"github.com/GettEngineering/redis-semaphore-go/semaphore/semaphore-redis"
 
 	"github.com/pkg/errors"
 )
@@ -67,9 +67,13 @@ func (s *semaphore) LockWithCustomTimeout(timeout time.Duration) (string, error)
 		}
 	}
 
+	now := time.Now().UnixNano()
+
+	resource = fmt.Sprintf("%v:%v", resource, now)
+
 	pipeErr := s.redis.client.TxPipelined(func(pipe semaphoreredis.Pipeline) error { //execute redis transaction
 
-		err := s.redis.client.HSet(s.lockedResourcesName(), resource, fmt.Sprint(time.Now().UnixNano())) //value = time of insertion so we would know when it is expired
+		err := s.redis.client.HSet(s.lockedResourcesName(), resource, fmt.Sprint(now)) //value = time of insertion so we would know when it is expired
 		if err != nil {
 			return errors.Wrapf(err, "failed to add resource %v to locked queue", resource)
 		}

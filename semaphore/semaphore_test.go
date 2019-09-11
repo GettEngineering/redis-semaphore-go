@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/gtforge/redis-semaphore-go/semaphore/semaphore-logger"
+	"github.com/GettEngineering/redis-semaphore-go/semaphore/semaphore-logger"
 
 	"github.com/pkg/errors"
 

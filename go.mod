@@ -1,5 +1,3 @@
-module github.com/gtforge/redis-semaphore-go
-
 go 1.12
 
 require (
@@ -13,3 +11,5 @@ require (
 	github.com/tylerb/gls v0.0.0-20150407001822-e606233f194d
 	gopkg.in/redis.v5 v5.2.9
 )
+
+module github.com/GettEngineering/redis-semaphore-go

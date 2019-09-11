@@ -4,9 +4,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/gtforge/redis-semaphore-go/semaphore/semaphore-logger"
-
-	"github.com/gtforge/redis-semaphore-go/semaphore/semaphore-redis"
+	"github.com/GettEngineering/redis-semaphore-go/semaphore/semaphore-logger"
+	"github.com/GettEngineering/redis-semaphore-go/semaphore/semaphore-redis"
 
 	"github.com/pkg/errors"
 )
