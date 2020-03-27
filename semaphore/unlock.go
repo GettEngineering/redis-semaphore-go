@@ -37,7 +37,7 @@ func (s *semaphore) unlock(resources ...string) (err error) {
 
 		var resourcesAsInterface []interface{}
 
-		for resource := range resources {
+		for _, resource := range resources {
 			resourcesAsInterface = append(resourcesAsInterface, resource)
 		}
 
